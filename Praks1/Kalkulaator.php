@@ -14,3 +14,4 @@ if($söögiHind > 0 and $soodustusProtsent > 0 and $opilaseToetus > 0); {
     $hindopilasele = $söögiHind =$opilaseToetus;
     echo 'soogi hind opilasele = '.$hindopilasele.'<br />';
 }
+test
