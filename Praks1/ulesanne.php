@@ -6,7 +6,7 @@
  * Time: 12:20
  */
 //import functions from others files
-require_once 'functsions.php';
+require_once 'functions.php';
 //call html file
 loeVormFailist('vorm.html');
 //create a dictionary
