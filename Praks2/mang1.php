@@ -5,18 +5,19 @@
  * Date: 14.02.2018
  * Time: 13:24
  */
-// määrame katsete arvu muutujat
-$katseteArv = $_POST['katseteArv'];
-// kontrollime antud väärtuse olemasolu
-$katseteArv = isset($katseteArv) ? ++$katseteArv : 0;
-$serveriArv = isset($serveriArv) ? $serveriArv : rand(1,50);
+// lisame kasutusele sessiooni
+session_start();
+if(!isset($_SESSION['serveriArv'])){
+    $_SESSION['serveriArv'] = rand(1, 50);
+} else {
+    $serveriArv = $_SESSION['serveriArv'];
+}
+// kontrollimiseks vaatame $_SESSION massiivi
 // trükime andmetega täidetud vorm
 echo '
     <form method="post" action="'.$_SERVER['PHP_SELF'].'">
         Sisesta arv vahemikus 1-50: 
         <input type="number" name="kasutajaArv"><br />
-        <input type="hidden" name="katseteArv" value="'.$katseteArv.'">
-        <input type="hidden" name="serveriArv" value="'.$serveriArv.'">
         <input type="submit" value="Kontrolli">
     </form>
 ';
