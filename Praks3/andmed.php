@@ -6,6 +6,7 @@
  * Time: 13:01
  */
 //võtame kasutusele
+// võtame kasutusele andmebaasitöötlusfunktsioonid
 require_once 'ab_abf.php';
 echo '<pre>';
 print_r($_POST);
@@ -23,5 +24,12 @@ echo $paev.'<br />';
 // ehitame ajaväärtus DATE formaadi järgi
 $aeg = $aasta.'-'.$kuu.'-'.$paev;
 echo $aeg.'<br />';
-//
-$yhendus = $yhendus();
+// tekitame ühendus ab serveriga
+$yhendus = yhendus();
+// andmete saatmiseks koostame päring
+$sql = 'INSERT INTO andmed SET '.
+    'eesnimi="'.$eesnimi.'", '.
+    'perenimi="'.$perenimi.'", '.
+    'aeg="'.$aeg.'"';
+// saadame päring andmebaasi
+$tulemus = saadaAndmed($yhendus, $sql);
